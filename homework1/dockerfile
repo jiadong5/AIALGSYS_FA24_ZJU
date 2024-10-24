@@ -1,0 +1,18 @@
+# 使用 Python 3.10 的 slim 版本作为基础镜像
+FROM python:3.10-slim
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制需求文件到容器中
+COPY requirements.txt .
+
+# 更新 pip 和安装依赖库
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+# 复制应用代码到容器中（可选）
+# COPY . .
+
+# 命令行入口（可选）
+# CMD ["python", "your_script.py"]
